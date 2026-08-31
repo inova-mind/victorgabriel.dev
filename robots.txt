@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Allow: /.well-known/security.txt
+Allow: /favicon.svg
+Allow: /humans.txt
+Allow: /index.html
+Allow: /llms.txt
+Allow: /paz-amor-e-coding.jpg
+Allow: /paz-amor-e-coding.webp
+Allow: /robots.txt
+Allow: /ef85b14c1e274bb297992f5875c5eb79.txt
+Allow: /bff67e8c286649c1828148e05748f7be.txt
+Allow: /sitemap.xml
+Allow: /projetos/cambio-novadax/
+Allow: /projetos/cambio-novadax/index.html
+Allow: /projetos/telegram-antispam-bot/
+Allow: /projetos/telegram-antispam-bot/index.html
+Allow: /projetos/webscraper-github-user/
+Allow: /projetos/webscraper-github-user/index.html
+Allow: /projetos/OpenFinance-Dashboard/
+Allow: /projetos/OpenFinance-Dashboard/index.html
+
+Sitemap: https://victorgabriel.dev/sitemap.xml

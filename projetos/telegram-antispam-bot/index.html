@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Telegram AntiSpam Bot · Moderação automática de grupos | Victor Gabriel</title>
+  <meta name="description" content="Bot para Telegram que detecta e bane automaticamente usuários que enviam spam em grupos. Desenvolvido com Telethon (MTProto), sem dependências externas além da biblioteca.">
+  <meta name="keywords" content="Telegram bot, anti-spam, moderação Telegram, ban automático, Telethon, Python bot, spam vietnamita, grupo Telegram, bot moderação, Victor Gabriel Dev, Victor Gabriel Desenvolvedor, Victor Gabriel Python, Victor Gabriel Linux, Victor Gabriel IA, Victor Gabriel Software, Victor Gabriel Sistemas, Victor Gabriel Cibersegurança, Inovamind Dev">
+  <meta name="author" content="Victor Gabriel">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://victorgabriel.dev/projetos/telegram-antispam-bot/">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://victorgabriel.dev/projetos/telegram-antispam-bot/">
+  <meta property="og:title"       content="Telegram AntiSpam Bot · Moderação automática de grupos">
+  <meta property="og:description" content="Bot que detecta e bane automaticamente spammers em grupos do Telegram. Sem intervenção humana, sem dependências externas.">
+  <meta property="og:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+  <meta property="og:locale"      content="pt_BR">
+  <meta property="og:site_name"   content="Victor Gabriel">
+
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="Telegram AntiSpam Bot · Moderação automática de grupos">
+  <meta name="twitter:description" content="Bot Python com Telethon que detecta e bane spammers em grupos do Telegram em tempo real.">
+  <meta name="twitter:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Telegram AntiSpam Bot",
+    "description": "Bot para Telegram que detecta e bane automaticamente usuários que enviam spam em grupos.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Linux, Windows, macOS",
+    "programmingLanguage": "Python",
+    "codeRepository": "https://github.com/VictorGabriel7Dev/telegram-antispam-bot",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Gabriel",
+      "url": "https://victorgabriel.dev",
+      "email": "contato@victorgabriel.dev"
+    },
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "version": "1.04",
+    "url": "https://victorgabriel.dev/projetos/telegram-antispam-bot/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <meta name="theme-color" content="#070B18">
+  <meta name="color-scheme" content="dark">
+</head>
+
+<body>
+
+  <nav>
+    <a href="https://victorgabriel.dev">← victorgabriel.dev</a>
+    <div class="nav-right">
+      <a href="https://victorgabriel.dev/projetos/">projetos</a>
+      <a href="https://github.com/VictorGabriel7Dev/telegram-antispam-bot" class="btn-gh">⭐ GitHub</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <header>
+      <div class="breadcrumb">
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a>
+        <span>/</span>
+        <a href="https://victorgabriel.dev/projetos/">projetos</a>
+        <span>/</span>
+        telegram-antispam-bot
+      </div>
+
+      <h1>Telegram AntiSpam Bot</h1>
+      <p class="tagline">Moderação automática de grupos, detecta e bane spammers em tempo real, sem intervenção humana.</p>
+
+      <div class="meta-badges">
+        <span class="badge green">Python 3.8+</span>
+        <span class="badge cyan">Telethon MTProto</span>
+        <span class="badge yellow">AGPL-3.0</span>
+        <span class="badge red">Anti-Spam</span>
+        <span class="badge">Telegram Bot</span>
+      </div>
+
+      <div class="header-links">
+        <a href="https://github.com/VictorGabriel7Dev/telegram-antispam-bot" class="link-primary">Ver no GitHub</a>
+        <a href="https://github.com/VictorGabriel7Dev/telegram-antispam-bot/raw/main/run.py" class="link-secondary" target="_blank">Download run.py</a>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <section>
+        <h2>O que faz</h2>
+        <p>
+          Bot para Telegram que monitora mensagens em grupos em tempo real.
+          Ao detectar padrões típicos de spam, apaga a mensagem e bane o usuário permanentemente, tudo de forma automática.
+        </p>
+        <ul>
+          <li>🗑️ <strong>Apaga</strong> a mensagem imediatamente</li>
+          <li>🔨 <strong>Bane</strong> o usuário do grupo permanentemente</li>
+          <li>🔄 <strong>Reinicia automaticamente</strong> em caso de falha</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Pré-requisitos</h2>
+        <ul>
+          <li>Python <strong>3.8+</strong></li>
+          <li>Credenciais da <a href="https://my.telegram.org/apps">API do Telegram</a></li>
+          <li>Token de bot via <a href="https://t.me/BotFather">@BotFather</a></li>
+          <li>Bot com permissão de <strong>administrador</strong> no grupo (banir membros + apagar mensagens)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Instalação</h2>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="terminal-title">bash</span>
+          </div>
+          <pre><span class="t-cmd">$ git clone https://github.com/VictorGabriel7Dev/telegram-antispam-bot.git</span>
+<span class="t-cmd">$ cd telegram-antispam-bot</span>
+<span class="t-cmd">$ pip install telethon</span>
+<span class="t-info"># edite run.py com suas credenciais</span>
+<span class="t-cmd">$ python run.py</span></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Configuração</h2>
+        <p>Edite as variáveis no dicionário <code>textos</code> dentro de <code>run.py</code>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Variável</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>bot_api</code></td>
+                <td>API ID de <a href="https://my.telegram.org/apps">my.telegram.org</a></td>
+              </tr>
+              <tr>
+                <td><code>bot_hash</code></td>
+                <td>API Hash de <a href="https://my.telegram.org/apps">my.telegram.org</a></td>
+              </tr>
+              <tr>
+                <td><code>bot_sessao</code></td>
+                <td>Caminho para o arquivo <code>.session</code></td>
+              </tr>
+              <tr>
+                <td><code>bot_token</code></td>
+                <td>Token do <a href="https://t.me/BotFather">@BotFather</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          Após preencher as credenciais, adicione o bot ao grupo e conceda permissão de administrador com as capacidades de <strong>banir membros</strong> e <strong>apagar mensagens</strong>.
+        </div>
+      </section>
+
+      <div class="lang-divider"><span>English</span></div>
+
+      <section>
+        <h2>What it does</h2>
+        <p>
+          Telegram bot that monitors group messages in real time.
+          Upon detecting typical spam patterns, it deletes the message and permanently bans the user, fully automatically.
+        </p>
+        <ul>
+          <li>🗑️ <strong>Deletes</strong> the message immediately</li>
+          <li>🔨 <strong>Permanently bans</strong> the user from the group</li>
+          <li>🔄 <strong>Auto-restarts</strong> on failure</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Requirements</h2>
+        <ul>
+          <li>Python <strong>3.8+</strong></li>
+          <li><a href="https://my.telegram.org/apps">Telegram API</a> credentials</li>
+          <li>Bot token via <a href="https://t.me/BotFather">@BotFather</a></li>
+          <li>Bot must be a group <strong>administrator</strong> (ban members + delete messages)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Installation</h2>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="terminal-title">bash</span>
+          </div>
+          <pre><span class="t-cmd">$ git clone https://github.com/VictorGabriel7Dev/telegram-antispam-bot.git</span>
+<span class="t-cmd">$ cd telegram-antispam-bot</span>
+<span class="t-cmd">$ pip install telethon</span>
+<span class="t-info"># edit run.py with your credentials</span>
+<span class="t-cmd">$ python run.py</span></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Configuration</h2>
+        <p>Edit the variables in the <code>textos</code> dictionary inside <code>run.py</code>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>bot_api</code></td>
+                <td>API ID from <a href="https://my.telegram.org/apps">my.telegram.org</a></td>
+              </tr>
+              <tr>
+                <td><code>bot_hash</code></td>
+                <td>API Hash from <a href="https://my.telegram.org/apps">my.telegram.org</a></td>
+              </tr>
+              <tr>
+                <td><code>bot_sessao</code></td>
+                <td>Path to the <code>.session</code> file</td>
+              </tr>
+              <tr>
+                <td><code>bot_token</code></td>
+                <td>Token from <a href="https://t.me/BotFather">@BotFather</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          After filling in the credentials, add the bot to the group and grant administrator permission with the ability to <strong>ban members</strong> and <strong>delete messages</strong>.
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="footer-author">
+        <strong>Victor Gabriel</strong>
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a><br>
+        <a href="mailto:contato@victorgabriel.dev">contato@victorgabriel.dev</a><br>
+        <a href="https://www.linkedin.com/in/victorgabriel-dev">LinkedIn</a> · <a href="https://t.me/VictorGabriel_Dev">Telegram</a> · <a href="https://www.instagram.com/VictorGabriel_Dev">Instagram</a> · Discord: @VictorGabriel.dev · <a href="https://wa.me/@VictorGabriel_Dev">WhatsApp</a><br>
+        <span style="color:#bbb;margin-top:.5rem;display:block">Gerado por <a href="https://claude.ai" style="color:#bbb">Claude</a><br>
+        Generated by <a href="https://claude.ai" style="color:#bbb">Claude</a></span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/VictorGabriel7Dev/telegram-antispam-bot">GitHub</a><br>
+        <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0-or-later</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Câmbio NovaDax · Cotação e Custo de Envio de Cripto | Victor Gabriel</title>
+  <meta name="description" content="Script Python que consulta a API pública da NovaDax e calcula, para qualquer criptomoeda, a cotação atual, a taxa de saque da rede e o custo total para comprar e enviar, sem dependências externas.">
+  <meta name="keywords" content="NovaDax, cotação cripto, taxa de saque, câmbio criptomoeda, DOGE BRL, DASH BRL, Python cripto, NovaDax API, custo envio cripto, Bitcoin BRL, Ethereum BRL, taker fee, livro de ordens, Victor Gabriel Dev, Victor Gabriel Desenvolvedor, Victor Gabriel Python, Victor Gabriel Linux, Victor Gabriel IA, Victor Gabriel Software, Victor Gabriel Sistemas, Victor Gabriel Cibersegurança, Inovamind Dev">
+  <meta name="author" content="Victor Gabriel">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://victorgabriel.dev/projetos/cambio-novadax/">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://victorgabriel.dev/projetos/cambio-novadax/">
+  <meta property="og:title"       content="Câmbio NovaDax · Cotação e Custo de Envio de Cripto">
+  <meta property="og:description" content="Quanto custa de verdade enviar 0.1 DOGE? O script calcula cotação, taxa de rede e custo total para comprar e enviar qualquer cripto via NovaDax.">
+  <meta property="og:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+  <meta property="og:locale"      content="pt_BR">
+  <meta property="og:site_name"   content="Victor Gabriel">
+
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="Câmbio NovaDax · Cotação e Custo de Envio de Cripto">
+  <meta name="twitter:description" content="Script Python sem dependências que consulta a API pública da NovaDax e calcula o custo real de comprar e enviar criptomoedas.">
+  <meta name="twitter:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Câmbio NovaDax",
+    "description": "Script Python que consulta a API pública da NovaDax e calcula cotação, taxa de rede e custo total para comprar e enviar criptomoedas.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Linux, Windows, macOS",
+    "programmingLanguage": "Python",
+    "codeRepository": "https://github.com/VictorGabriel7Dev/cambio-novadax",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Gabriel",
+      "url": "https://victorgabriel.dev",
+      "email": "contato@victorgabriel.dev"
+    },
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "version": "1.0",
+    "url": "https://victorgabriel.dev/projetos/cambio-novadax/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <meta name="theme-color" content="#070B18">
+  <meta name="color-scheme" content="dark">
+</head>
+
+<body>
+
+  <nav>
+    <a href="https://victorgabriel.dev">← victorgabriel.dev</a>
+    <div class="nav-right">
+      <a href="https://victorgabriel.dev/projetos/">projetos</a>
+      <a href="https://github.com/VictorGabriel7Dev/cambio-novadax" class="btn-gh">⭐ GitHub</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <header>
+      <div class="breadcrumb">
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a>
+        <span>/</span>
+        <a href="https://victorgabriel.dev/projetos/">projetos</a>
+        <span>/</span>
+        cambio-novadax
+      </div>
+
+      <h1>Câmbio NovaDax</h1>
+      <p class="tagline">Consultor de cotações e custos de envio de criptomoedas via NovaDax, direto no terminal.</p>
+
+      <div class="meta-badges">
+        <span class="badge green">Python 3.10+</span>
+        <span class="badge cyan">Zero dependências</span>
+        <span class="badge yellow">AGPL-3.0</span>
+        <span class="badge">NovaDax API</span>
+        <span class="badge">CLI</span>
+      </div>
+
+      <div class="header-links">
+        <a href="https://github.com/VictorGabriel7Dev/cambio-novadax" class="link-primary">Ver no GitHub</a>
+        <a href="https://github.com/VictorGabriel7Dev/cambio-novadax/raw/main/Cambio-NovaDax.py" class="link-secondary" target="_blank">Download .py</a>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <section>
+        <h2>O que faz</h2>
+        <p>Dado um valor e uma moeda, o script responde três perguntas que a interface da NovaDax não responde diretamente:</p>
+        <ul>
+          <li><strong>Qual o preço atual</strong> da moeda (em BRL ou SOL quando o par BRL não existe)</li>
+          <li><strong>Quanto precisa ENVIAR</strong> da carteira para o destino receber exatamente o valor pedido, já descontando a taxa de rede</li>
+          <li><strong>Quanto precisa COMPRAR</strong> na exchange para cobrir o envio e a taxa de negociação (taker)</li>
+        </ul>
+        <p>
+          Funciona para todas as moedas listadas na NovaDax. Redes com taxa dinâmica
+          (<code>dynamic</code>) exibem aviso, pois o valor só é definido no momento do saque.
+          Quando uma moeda tem múltiplas redes disponíveis, o script exibe o resultado para cada
+          rede separadamente.
+        </p>
+      </section>
+
+      <section>
+        <h2>Exemplo de saída</h2>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="terminal-title">bash</span>
+          </div>
+          <pre><span class="t-cmd">$ python Cambio-NovaDax.py 0.1DASH</span>
+
+<span class="t-sep">════════════════════════════════════════════════════════════════════</span>
+  <span class="t-head">NovaDax</span>  ·  Câmbio Cripto
+  Consultando  <span class="t-coin">0.1 DASH</span>
+<span class="t-sep">════════════════════════════════════════════════════════════════════</span>
+
+  <span class="t-sec">▶  DASH</span>  ·  <span class="t-head">Dash (DASH)</span>
+<span class="t-sep">────────────────────────────────────────────────────────────────────</span>
+── Mercado
+
+  <span class="t-label">Cotação atual (1 DASH)                </span>  <span class="t-val">R$ 178,29</span>
+
+── Limites e taxas de rede
+
+  <span class="t-label">Mínimo de depósito                    </span>  <span class="t-coin">0.19113150 DASH</span>
+                                            →  <span class="t-val">R$ 34,08</span>
+  <span class="t-label">Taxa de saque da rede                 </span>  <span class="t-coin">0.00100000 DASH</span>
+                                            →  <span class="t-val">R$ 0,18</span>
+
+── Custo para comprar e enviar
+
+  Destino receberá exatamente  :  <span class="t-coin">0.10000000 DASH</span>
+  Taxa de compra (taker)       :  <span class="t-val">0.60%  (VIP0)</span>
+
+── Em reais (BRL)
+
+  <span class="t-label">Valor da moeda  (0.1000 × R$178,29)   </span>  <span class="t-val">R$ 17,83</span>
+  <span class="t-label">Taxa de saque   (0.0010 × R$178,29)   </span>  <span class="t-coin">R$ 0,18</span>
+  <span class="t-sep">··················································</span>
+  <span class="t-label">Subtotal                              </span>  <span class="t-val">R$ 18,01</span>
+  <span class="t-label">Taxa de compra  (0.60% s/ subtotal)   </span>  <span class="t-coin">R$ 0,11</span>
+  <span class="t-sep">──────────────────────────────────────────────────</span>
+  <span class="t-total">TOTAL A PAGAR (BRL)                       R$ 18,12</span>
+
+── Em DASH
+
+  <span class="t-label">Quantidade que chegará ao destino     </span>  <span class="t-val">0.10000000 DASH</span>
+  <span class="t-label">Taxa descontada pela rede no envio    </span>  <span class="t-coin">0.00100000 DASH</span>
+  <span class="t-sep">··················································</span>
+  <span class="t-label">Precisa ENVIAR  (sai da sua carteira) </span>  <span class="t-val">0.10100000 DASH</span>
+  <span class="t-label">Taxa de compra  (0.60%)               </span>  <span class="t-coin">0.00060600 DASH</span>
+  <span class="t-sep">──────────────────────────────────────────────────</span>
+  <span class="t-total">Precisa COMPRAR na exchange               0.10160966 DASH</span>
+<span class="t-sep">────────────────────────────────────────────────────────────────────</span></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Uso</h2>
+        <p>Aceita número e moeda em qualquer ordem, com ou sem espaço, vírgula ou ponto decimal:</p>
+        <pre>python Cambio-NovaDax.py 0.1 DASH
+python Cambio-NovaDax.py 0.1DASH
+python Cambio-NovaDax.py DASH0.1
+python Cambio-NovaDax.py 0,1DASH</pre>
+      </section>
+
+      <section>
+        <h2>Instalação</h2>
+        <p>Sem <code>pip install</code>. Usa apenas a biblioteca padrão do Python.</p>
+        <pre>git clone https://github.com/VictorGabriel7Dev/cambio-novadax.git
+cd cambio-novadax
+python Cambio-NovaDax.py 0.05 BTC</pre>
+        <div class="callout">
+          Requer <strong>Python 3.10+</strong>. Sem dependências externas,
+          <code>urllib</code>, <code>json</code>, <code>re</code> e <code>sys</code> da stdlib.
+        </div>
+      </section>
+
+      <section>
+        <h2>Como funciona</h2>
+        <p>
+          O script consulta a API pública da NovaDax sem necessidade de conta ou chave de API,
+          trazendo dados de cotação em tempo real, taxas de saque por rede e taxas de negociação por nível VIP.
+        </p>
+        <p>
+          <strong>Cotação:</strong> usa o maior preço entre os <code>QUANTIDADE_MEDIA</code> melhores asks
+          do livro de ordens, pior caso de execução a mercado. Conservador por design.
+        </p>
+        <p>
+          <strong>Par de referência:</strong> tenta <code>MOEDA_BRL</code> primeiro.
+          Se não existir, tenta <code>SOL_MOEDA</code> e exibe a conversão adicional em SOL.
+        </p>
+
+        <h3>Fórmulas</h3>
+        <div class="formula">
+          <span class="comment"># Em BRL</span><br>
+          subtotal  = (quantidade × cotacao) + (taxa_rede × cotacao)<br>
+          total_brl = subtotal / (1 − taker_fee)<br>
+          <br>
+          <span class="comment"># Em moeda</span><br>
+          a_enviar  = quantidade + taxa_rede    <span class="comment"># sai da sua carteira</span><br>
+          a_comprar = a_enviar / (1 − taker_fee) <span class="comment"># compra na exchange</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Configuração</h2>
+        <p>Três constantes no topo do arquivo:</p>
+        <pre>VIP_LEVEL        = "VIP0"
+QUANTIDADE_MEDIA = 15
+USER_AGENT       = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0"</pre>
+        <ul>
+          <li>
+            <strong>VIP_LEVEL</strong>: define a taxa taker usada nos cálculos.
+            A taxa correspondente é buscada automaticamente da API.
+            Níveis disponíveis: <code>VIP0</code> a <code>VIP10</code>.
+          </li>
+          <li>
+            <strong>QUANTIDADE_MEDIA</strong>: quantidade de ofertas do livro de ordens a consultar.
+            O script usa o maior preço entre elas (pior caso). Aumentar torna a estimativa mais conservadora.
+          </li>
+          <li>
+            <strong>USER_AGENT</strong>: identificação usada em todas as requisições HTTP.
+            A API da NovaDax exige um User-Agent válido, sem ele, as requisições retornam <code>403 Forbidden</code>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Observações</h2>
+        <div class="callout warn">
+          Redes com <code>feeType: dynamic</code> não têm taxa fixa, o script exibe aviso
+          e não calcula o custo total para essas redes.
+        </div>
+        <ul>
+          <li>Quando uma moeda tem múltiplas redes, cada rede é exibida separadamente.</li>
+          <li>Os valores são informativos e podem variar entre a consulta e a execução.</li>
+          <li>Não requer conta, login ou chave de API na NovaDax.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="footer-author">
+        <strong>Victor Gabriel</strong>
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a><br>
+        <a href="mailto:contato@victorgabriel.dev">contato@victorgabriel.dev</a><br>
+        <a href="https://www.linkedin.com/in/victorgabriel-dev">LinkedIn</a> · <a href="https://t.me/VictorGabriel_Dev">Telegram</a> · <a href="https://www.instagram.com/VictorGabriel_Dev">Instagram</a> · Discord: @VictorGabriel.dev · <a href="https://wa.me/@VictorGabriel_Dev">WhatsApp</a><br>
+        <span style="color:#bbb;margin-top:.5rem;display:block">Gerado por <a href="https://claude.ai" style="color:#bbb">Claude</a>
+        </span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/VictorGabriel7Dev/cambio-novadax">GitHub</a><br>
+        <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0-or-later</a><br>
+    </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

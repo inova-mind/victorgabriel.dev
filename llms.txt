@@ -1,0 +1,28 @@
+# Victor Gabriel
+
+> Arquiteto de Soluções & Engenheiro Full-Cycle | Software · IA · Infra · Segurança | Especialista Linux
+
+Como arquiteto de soluções, atuo em cinco frentes integradas da engenharia: software, IA, infra, segurança e dados. Acumulo 23 anos de prática sustentados por 18 anos de imersão diária no ecossistema Linux. Como engenheiro full-cycle, projeto e implemento sistemas inteiros: do código da aplicação ao servidor que a hospeda, do esquema do banco ao firewall que o protege, dos pipelines de automação à orquestração de modelos. Trabalho com auditoria recorrente como prática rotineira, em que cada decisão vira regra documentada, cada incidente vira postmortem que protege o futuro e cada esquema é versionado e idempotente. Carrego a convicção operacional de que documentação, código, dados e operação devem caminhar como uma única narrativa coerente, em que tudo que está documentado precisa estar rigorosamente aplicado e tudo que está aplicado precisa estar rigorosamente documentado.
+
+## Tecnologias principais
+
+- Python, Java, Kotlin, Swift, C++, JavaScript, Perl, Lua, Bash
+- Linux, Nginx, Apache, gunicorn, Postfix, OpenSSL, NFTables, IPTables, FirewallD, OpenSSH, OpenSFTP, VNC, RDP
+- PostgreSQL, pgvector, Redis, MySQL, MariaDB, SQLite
+- SQLAlchemy, BeautifulSoup4, Playwright, Searlo, Zyte
+- Apache Airflow, Cron
+- Git, GitHub, Forgejo, Forgejo Actions, Docker
+- Claude Code, Anthropic, pytest, Ruff
+- Google Ads, Google Search Console, Meta Ads
+- Hetzner, Cloudflare
+
+## Contato
+
+- Site: https://victorgabriel.dev
+- GitHub: https://github.com/VictorGabriel7Dev
+- LinkedIn: https://www.linkedin.com/in/victorgabriel-dev
+- WhatsApp: https://wa.me/@VictorGabriel_Dev
+- Discord: @VictorGabriel.dev
+- Telegram: https://t.me/VictorGabriel_Dev
+- Instagram: https://www.instagram.com/VictorGabriel_Dev
+- E-mail: contato@victorgabriel.dev
