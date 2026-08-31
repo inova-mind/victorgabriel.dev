@@ -1,4 +1,4 @@
-<img src=".github/logo.svg" alt="victorgabriel.dev" height="72">
+<img src=".github/logo.jpg" alt="victorgabriel.dev" height="72">
 
 # victorgabriel.dev
 
