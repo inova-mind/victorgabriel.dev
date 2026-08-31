@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>webscraper-github-user · Stars e Following de qualquer perfil GitHub | Victor Gabriel</title>
+  <meta name="description" content="Script Python que raspa as páginas públicas do GitHub e lista todos os repositórios favoritados como estrelas e usuários seguidos de qualquer perfil, sem token, sem dependências externas.">
+  <meta name="keywords" content="github scraper, github stars, github following, python web scraping, github profile, sem api, sem token, urllib, regex, Victor Gabriel Dev, Victor Gabriel Desenvolvedor, Victor Gabriel Python, Victor Gabriel Linux, Victor Gabriel IA, Victor Gabriel Software, Victor Gabriel Sistemas, Victor Gabriel Cibersegurança, Inovamind Dev">
+  <meta name="author" content="Victor Gabriel">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://victorgabriel.dev/projetos/webscraper-github-user/">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://victorgabriel.dev/projetos/webscraper-github-user/">
+  <meta property="og:title"       content="webscraper-github-user · Stars e Following de qualquer perfil GitHub">
+  <meta property="og:description" content="Script Python sem dependências que lista todos os repositórios favoritados como estrelas e usuários seguidos de qualquer perfil público do GitHub.">
+  <meta property="og:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+  <meta property="og:locale"      content="pt_BR">
+  <meta property="og:site_name"   content="Victor Gabriel">
+
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="webscraper-github-user · Stars e Following de qualquer perfil GitHub">
+  <meta name="twitter:description" content="Script Python que extrai páginas públicas do GitHub sem token nem dependências externas.">
+  <meta name="twitter:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "webscraper-github-user",
+    "description": "Script Python que extrai as páginas públicas do GitHub e lista repositórios favoritados como estrelas e usuários seguidos de qualquer perfil.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux, Windows, macOS",
+    "programmingLanguage": "Python",
+    "codeRepository": "https://github.com/VictorGabriel7Dev/webscraper-github-user",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Gabriel",
+      "url": "https://victorgabriel.dev",
+      "email": "contato@victorgabriel.dev"
+    },
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "version": "1.01",
+    "url": "https://victorgabriel.dev/projetos/webscraper-github-user/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <meta name="theme-color" content="#070B18">
+  <meta name="color-scheme" content="dark">
+</head>
+
+<body>
+
+  <nav>
+    <a href="https://victorgabriel.dev">← victorgabriel.dev</a>
+    <div class="nav-right">
+      <a href="https://victorgabriel.dev/projetos/">projetos</a>
+      <a href="https://github.com/VictorGabriel7Dev/webscraper-github-user" class="btn-gh">⭐ GitHub</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <header>
+      <div class="breadcrumb">
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a>
+        <span>/</span>
+        <a href="https://victorgabriel.dev/projetos/">projetos</a>
+        <span>/</span>
+        webscraper-github-user
+      </div>
+
+      <h1>webscraper-github-user</h1>
+      <p class="tagline">Exibe stars e following de qualquer perfil público do GitHub, direto no terminal.</p>
+
+      <div class="meta-badges">
+        <span class="badge green">Python 3.8+</span>
+        <span class="badge cyan">Zero dependências</span>
+        <span class="badge yellow">AGPL-3.0</span>
+        <span class="badge magenta">Web Scraping</span>
+        <span class="badge">CLI</span>
+      </div>
+
+      <div class="header-links">
+        <a href="https://github.com/VictorGabriel7Dev/webscraper-github-user" class="link-primary">Ver no GitHub</a>
+        <a href="https://github.com/VictorGabriel7Dev/webscraper-github-user/raw/main/WebScraper-GitHub-User.py" class="link-secondary" target="_blank">Download .py</a>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <section>
+        <h2>O que faz</h2>
+        <p>Dado um nome de usuário do GitHub, o script exibe em sequência:</p>
+        <ul>
+          <li><strong>★ Stars</strong>: todos os repositórios favoritados como estrelas, com nome e descrição</li>
+          <li><strong>● Following</strong>: todos os usuários que o perfil segue, com link direto</li>
+          <li><strong>Resumo final</strong>: contagem consolidada de stars e following</li>
+        </ul>
+        <p>
+          Funciona para qualquer perfil público do GitHub. Suporta paginação automática,
+          não importa quantas páginas existam, o script percorre todas sem intervenção.
+        </p>
+      </section>
+
+      <section>
+        <h2>Exemplo de saída</h2>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="terminal-title">bash</span>
+          </div>
+          <pre><span class="t-cmd">$ python WebScraper-GitHub-User.py torvalds</span>
+
+<span class="t-sep">────────────────────────────────────────────────────────────</span>
+  <span class="t-banner">⬡  webscraper-github-user</span>
+  Target → <b style="color:#fff">github.com/torvalds</b>
+<span class="t-sep">────────────────────────────────────────────────────────────</span>
+
+  <span class="t-head">★  Starred repositories: torvalds</span>
+  <span class="t-sep">··················································</span>
+  <span class="t-idx">   1.</span>  <span class="t-repo">torvalds/linux</span>
+         <span class="t-desc">The Linux kernel</span>
+  <span class="t-idx">   2.</span>  <span class="t-repo">git/git</span>
+         <span class="t-desc">Fast, scalable, distributed revision control system</span>
+  <span class="t-label">  ...</span>
+
+  <span class="t-total">  ✔  Total starred repositories: 42</span>
+
+  <span class="t-head">★  Following: torvalds</span>
+  <span class="t-sep">··················································</span>
+  <span class="t-idx">   1.</span>  <span class="t-user">gregkh</span>  <span class="t-url">https://github.com/gregkh</span>
+  <span class="t-idx">   2.</span>  <span class="t-user">davem330</span>  <span class="t-url">https://github.com/davem330</span>
+  <span class="t-label">  ...</span>
+
+  <span class="t-total">  ✔  Total following: 7</span>
+
+<span class="t-sep">────────────────────────────────────────────────────────────</span>
+  Summary for <span class="t-head">torvalds</span>
+  <span class="t-head">★</span>  Stars     : <b style="color:#fff">42</b>
+  <span class="t-user">●</span>  Following : <b style="color:#fff">7</b>
+<span class="t-sep">────────────────────────────────────────────────────────────</span></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Uso</h2>
+        <p>O nome de usuário é recebido como primeiro argumento. O prefixo <code>@</code> é opcional.</p>
+        <pre>python WebScraper-GitHub-User.py torvalds
+python WebScraper-GitHub-User.py @VictorGabriel7Dev</pre>
+      </section>
+
+      <section>
+        <h2>Instalação</h2>
+        <p>Sem <code>pip install</code>. Usa apenas a biblioteca padrão do Python.</p>
+        <pre>git clone https://github.com/VictorGabriel7Dev/webscraper-github-user.git
+cd webscraper-github-user
+python WebScraper-GitHub-User.py torvalds</pre>
+        <div class="callout">
+          Requer <strong>Python 3.8+</strong>. Sem dependências externas,
+          <code>urllib</code>, <code>re</code>, <code>html</code> e <code>sys</code> da stdlib.
+        </div>
+      </section>
+
+      <section>
+        <h2>Como funciona</h2>
+        <p>
+          O script acessa diretamente as páginas HTML públicas do GitHub (sem autenticação)
+          e extrai os dados via expressões regulares, do mesmo modo que um navegador faria.
+        </p>
+      </section>
+
+      <section>
+        <h2>Observações</h2>
+        <div class="callout warn">
+          O script lê apenas páginas <strong>públicas</strong>. Perfis privados ou listas
+          restritas não são acessíveis sem autenticação.
+        </div>
+        <ul>
+          <li>Os resultados refletem o estado das páginas no momento da execução.</li>
+          <li>Nenhum dado é armazenado, enviado ou cacheado.</li>
+        </ul>
+      </section>
+
+      <div class="lang-divider"><span>English</span></div>
+
+      <section>
+        <h2>What it does</h2>
+        <p>Given a GitHub username, the script displays in sequence:</p>
+        <ul>
+          <li><strong>★ Stars</strong>: all starred repositories, with name and description</li>
+          <li><strong>● Following</strong>: all users the profile follows, with direct link</li>
+          <li><strong>Final summary</strong>: consolidated count of stars and following</li>
+        </ul>
+        <p>
+          Works for any public GitHub profile. Supports automatic pagination,
+          no matter how many pages, the script traverses all of them without intervention.
+        </p>
+      </section>
+
+      <section>
+        <h2>Output example</h2>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="terminal-title">bash</span>
+          </div>
+          <pre><span class="t-cmd">$ python WebScraper-GitHub-User.py torvalds</span>
+
+<span class="t-sep">────────────────────────────────────────────────────────────</span>
+  <span class="t-banner">⬡  webscraper-github-user</span>
+  Target → <b style="color:#fff">github.com/torvalds</b>
+<span class="t-sep">────────────────────────────────────────────────────────────</span>
+
+  <span class="t-head">★  Starred repositories: torvalds</span>
+  <span class="t-sep">··················································</span>
+  <span class="t-idx">   1.</span>  <span class="t-repo">torvalds/linux</span>
+         <span class="t-desc">The Linux kernel</span>
+  <span class="t-idx">   2.</span>  <span class="t-repo">git/git</span>
+         <span class="t-desc">Fast, scalable, distributed revision control system</span>
+  <span class="t-label">  ...</span>
+
+  <span class="t-total">  ✔  Total starred repositories: 42</span>
+
+  <span class="t-head">★  Following: torvalds</span>
+  <span class="t-sep">··················································</span>
+  <span class="t-idx">   1.</span>  <span class="t-user">gregkh</span>  <span class="t-url">https://github.com/gregkh</span>
+  <span class="t-idx">   2.</span>  <span class="t-user">davem330</span>  <span class="t-url">https://github.com/davem330</span>
+  <span class="t-label">  ...</span>
+
+  <span class="t-total">  ✔  Total following: 7</span>
+
+<span class="t-sep">────────────────────────────────────────────────────────────</span>
+  Summary for <span class="t-head">torvalds</span>
+  <span class="t-head">★</span>  Stars     : <b style="color:#fff">42</b>
+  <span class="t-user">●</span>  Following : <b style="color:#fff">7</b>
+<span class="t-sep">────────────────────────────────────────────────────────────</span></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Usage</h2>
+        <p>The username is received as the first argument. The <code>@</code> prefix is optional.</p>
+        <pre>python WebScraper-GitHub-User.py torvalds
+python WebScraper-GitHub-User.py @VictorGabriel7Dev</pre>
+      </section>
+
+      <section>
+        <h2>Installation</h2>
+        <p>No <code>pip install</code> needed. Uses only the Python standard library.</p>
+        <pre>git clone https://github.com/VictorGabriel7Dev/webscraper-github-user.git
+cd webscraper-github-user
+python WebScraper-GitHub-User.py torvalds</pre>
+        <div class="callout">
+          Requires <strong>Python 3.8+</strong>. No external dependencies,
+          <code>urllib</code>, <code>re</code>, <code>html</code> and <code>sys</code> from stdlib.
+        </div>
+      </section>
+
+      <section>
+        <h2>How it works</h2>
+        <p>
+          The script fetches GitHub's public HTML pages directly (no authentication)
+          and extracts data using regular expressions, the same way a browser would.
+        </p>
+      </section>
+
+      <section>
+        <h2>Notes</h2>
+        <div class="callout warn">
+          The script only reads <strong>public</strong> pages. Private profiles or restricted
+          lists are not accessible without authentication.
+        </div>
+        <ul>
+          <li>Results reflect the page state at the time of execution.</li>
+          <li>No data is stored, sent or cached.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="footer-author">
+        <strong>Victor Gabriel</strong>
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a><br>
+        <a href="mailto:contato@victorgabriel.dev">contato@victorgabriel.dev</a><br>
+        <a href="https://www.linkedin.com/in/victorgabriel-dev">LinkedIn</a> · <a href="https://t.me/VictorGabriel_Dev">Telegram</a> · <a href="https://www.instagram.com/VictorGabriel_Dev">Instagram</a> · Discord: @VictorGabriel.dev · <a href="https://wa.me/@VictorGabriel_Dev">WhatsApp</a><br>
+        <span style="color:#bbb;margin-top:.5rem;display:block">Gerado por <a href="https://claude.ai" style="color:#bbb">Claude</a><br>
+        Generated by <a href="https://claude.ai" style="color:#bbb">Claude</a></span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/VictorGabriel7Dev/webscraper-github-user">GitHub</a><br>
+        <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0-or-later</a><br>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

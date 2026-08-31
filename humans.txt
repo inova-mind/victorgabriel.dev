@@ -1,0 +1,15 @@
+Developer: Victor Gabriel
+Role: Arquiteto de Soluções & Engenheiro Full-Cycle | Software · IA · Infra · Segurança | Especialista Linux
+Contact: contato@victorgabriel.dev
+Site: https://victorgabriel.dev
+GitHub: https://github.com/VictorGabriel7Dev
+LinkedIn: https://www.linkedin.com/in/victorgabriel-dev
+WhatsApp: https://wa.me/@VictorGabriel_Dev
+Discord: VictorGabriel.dev
+Telegram: https://t.me/VictorGabriel_Dev
+Instagram: https://www.instagram.com/VictorGabriel_Dev
+From: Brasil
+Last update: 2026-08-31
+Language: Portuguese (Brazil)
+Standards: HTML5, CSS3
+Hosted: Debian + Nginx + Cloudflare
