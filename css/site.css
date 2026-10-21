@@ -214,6 +214,22 @@ code {
     max-width: 34rem;
 }
 
+/* Selo de contribuidor (credencial, nao chip de stack): SVG flat 199x20
+   servido pelo proprio hub. line-height:0 remove a folga da linha de
+   texto em volta da imagem. */
+.carimbo-selo {
+    display: inline-block;
+    margin: 14px 0 0;
+    line-height: 0;
+}
+
+.carimbo-selo img {
+    display: block;
+    height: 20px;
+    width: auto;
+    border-radius: 3px;
+}
+
 .carimbo-rodape {
     display: grid;
     grid-template-columns: 1fr 1fr;
