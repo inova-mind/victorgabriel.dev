@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Pixel Prop Builder · build.prop de todo Pixel, direto das OTA | Victor Gabriel</title>
-  <meta name="description" content="Acervo navegável e atualizado automaticamente do build.prop completo de cada Pixel, extraído direto das imagens OTA oficiais do Google e publicado como asset de release.">
-  <meta name="keywords" content="build.prop, Pixel, OTA, Android, imagem de fábrica, factory image, codename, ro.build, device props, Google OTA, payload dumper, EROFS, Pixel Prop Builder, Victor Gabriel Dev, Victor Gabriel Desenvolvedor, Victor Gabriel Linux, Victor Gabriel Android, Inovamind Dev">
+  <meta name="description" content="Acervo navegável e auto-atualizado do build.prop completo de cada Pixel (todas as partições + vbmeta.digest), nos canais stable, beta e canary, extraído das imagens oficiais do Google e indexado em index.json.">
+  <meta name="keywords" content="build.prop, Pixel, OTA, Android, imagem de fábrica, factory image, codename, canary, beta, stable, vbmeta, index.json, ro.build, security_patch, device props, Google OTA, payload dumper, EROFS, Pixel Prop Builder, Victor Gabriel Dev, Victor Gabriel Linux, Victor Gabriel Android, Inovamind Dev">
   <meta name="author" content="Victor Gabriel">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://victorgabriel.dev/projetos/build.prop/">
@@ -14,14 +14,14 @@
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://victorgabriel.dev/projetos/build.prop/">
   <meta property="og:title"       content="Pixel Prop Builder · build.prop de todo Pixel, direto das OTA">
-  <meta property="og:description" content="Acervo versionado e auto-atualizado do build.prop completo de cada Pixel, extraído direto das imagens OTA oficiais do Google.">
+  <meta property="og:description" content="Acervo versionado e auto-atualizado do build.prop completo de cada Pixel (todas as partições + vbmeta.digest), nos canais stable, beta e canary, das imagens oficiais do Google.">
   <meta property="og:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
   <meta property="og:locale"      content="pt_BR">
   <meta property="og:site_name"   content="Victor Gabriel">
 
   <meta name="twitter:card"        content="summary">
   <meta name="twitter:title"       content="Pixel Prop Builder · build.prop de todo Pixel, direto das OTA">
-  <meta name="twitter:description" content="Acervo versionado e auto-atualizado do build.prop completo de cada Pixel, extraído das imagens OTA oficiais do Google.">
+  <meta name="twitter:description" content="Acervo versionado do build.prop completo de cada Pixel (todas as partições + vbmeta.digest), nos canais stable, beta e canary, das imagens oficiais do Google.">
   <meta name="twitter:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
 
   <script type="application/ld+json">
@@ -29,7 +29,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Pixel Prop Builder",
-    "description": "Acervo navegável e atualizado automaticamente do build.prop completo de cada Pixel, extraído direto das imagens OTA oficiais do Google e publicado como asset de release.",
+    "description": "Acervo navegável e auto-atualizado do build.prop completo de cada Pixel (todas as partições e ro.boot.vbmeta.digest), nos canais stable, beta e canary, extraído das imagens oficiais do Google e indexado em index.json.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Linux, macOS",
     "programmingLanguage": "Shell",
@@ -79,14 +79,14 @@
       </div>
 
       <h1>Pixel Prop Builder</h1>
-      <p class="tagline">Acervo navegável e atualizado automaticamente do <code>build.prop</code> completo de cada Pixel, direto das imagens OTA oficiais do Google.</p>
+      <p class="tagline">Acervo navegável e atualizado automaticamente do <code>build.prop</code> completo de cada Pixel, direto das imagens oficiais do Google.</p>
 
       <div class="meta-badges">
         <span class="badge green">Shell</span>
         <span class="badge cyan">Auto-atualizado</span>
         <span class="badge yellow">GPL-3.0-or-later</span>
         <span class="badge">Android · Pixel</span>
-        <span class="badge">GitHub Actions</span>
+        <span class="badge">stable · beta · canary</span>
       </div>
 
       <div class="header-links">
@@ -100,33 +100,57 @@
       <section>
         <h2>O que faz</h2>
         <p>
-          Mantém um acervo versionado do <code>build.prop</code> completo de cada Pixel, extraído
-          diretamente das imagens OTA oficiais do Google e atualizado sozinho. O <code>.prop</code>
-          de cada aparelho fica guardado no repositório e publicado como asset de release, pronto
-          para navegar ou baixar sem precisar de ferramenta nenhuma.
+          Mantém um acervo versionado dos <strong>4 últimos builds de cada canal</strong>
+          (<code>stable</code>, <code>beta</code> e <code>canary</code>) de cada Pixel recente,
+          extraído diretamente das imagens oficiais de fábrica e OTA do Google e atualizado sozinho.
         </p>
         <p>
-          Cada arquivo é o conjunto completo e organizado das propriedades de build daquele aparelho
-          e build exatos: <code>product</code>, <code>vendor</code>, <code>odm</code>,
-          <code>system</code>, <code>system_ext</code>, <code>system_dlkm</code> e mais.
+          Cada entrada é o <code>build.prop</code> <strong>completo</strong>, mesclado de
+          <strong>todas as partições</strong> (<code>system</code>, <code>system_ext</code>,
+          <code>product</code>, <code>vendor</code>, <code>odm</code> e as imagens <code>_dlkm</code>),
+          e traz o <code>ro.boot.vbmeta.digest</code> (o hash do verified boot). Tudo fica guardado no
+          repositório, indexado num <code>index.json</code> legível por máquina e publicado como asset
+          de release. Nenhuma ferramenta necessária.
         </p>
       </section>
 
       <section>
-        <h2>Obtenha um <code>.prop</code></h2>
-        <p>Duas maneiras, sem configuração:</p>
+        <h2>O que há dentro</h2>
+        <ul>
+          <li><strong>Todo Pixel recente</strong> (Pixel 6 e mais novos), 25 aparelhos.</li>
+          <li><strong>Três canais por aparelho</strong>: <code>stable</code>, <code>beta</code> e
+              <code>canary</code>, os builds mais recentes de cada (sujeito ao que o Google realmente
+              publica; alguns aparelhos recém-lançados ainda têm só um ou dois builds no canary).</li>
+          <li><strong><code>build.prop</code> completo</strong> por build (cerca de 300 a 390
+              propriedades), mesclado de todas as partições.</li>
+          <li><strong><code>vbmeta.digest</code></strong> (o hash do verified boot) guardado junto das
+              propriedades.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Obtenha os dados</h2>
+        <p>Três maneiras, sem configuração:</p>
         <ul>
           <li>
             <strong>Navegue pelo repositório</strong>: abra a pasta do aparelho
-            <code>&lt;codename&gt;/</code> e escolha <code>&lt;codename&gt;_&lt;build_id&gt;.prop</code>.
+            <code>&lt;codename&gt;/</code> e escolha um arquivo. A nomenclatura diz o canal:
+            <code>&lt;codename&gt;_&lt;incremental&gt;.prop</code> (stable),
+            <code>&lt;codename&gt;_beta_&lt;incremental&gt;.prop</code> e
+            <code>&lt;codename&gt;_canary_&lt;incremental&gt;.prop</code>.
           </li>
           <li>
-            <strong>Baixe pelas Releases</strong>: pegue o arquivo na release mais recente,
-            com a tag <code>build-YYYYMMDD</code>.
+            <strong><code>index.json</code></strong>: um manifesto legível por máquina que mapeia cada
+            aparelho para canal para build mais recente, com <code>model</code>, <code>soc</code>,
+            <code>first_api_level</code>, <code>security_patch</code>, <code>android</code>,
+            <code>build</code>, <code>incremental</code> e <code>vbmeta_digest</code>. Ideal para
+            automação.
+          </li>
+          <li>
+            <strong>Releases</strong>: baixe todo o acervo como um único <code>.zip</code> (mais o
+            <code>index.json</code>) na release mais recente, com a tag <code>build-YYYYMMDD</code>.
           </li>
         </ul>
-        <p>O acervo cobre 25 aparelhos (codenames como <code>akita</code>, <code>husky</code>,
-           <code>komodo</code>, <code>caiman</code>, <code>comet</code>, <code>lynx</code>).</p>
       </section>
 
       <section>
@@ -138,15 +162,16 @@
             <div class="dot dot-g"></div>
             <span class="terminal-title">bash</span>
           </div>
-          <pre><span class="t-cmd">$ ./download_latest_ota_build.sh akita</span>
-<span class="t-cmd">$ ./extract_images.sh</span>
-  →  akita/akita_16596456.prop
+          <pre><span class="t-cmd">$ ls akita/</span>
+akita_16271449.prop          <span class="t-label"># stable</span>
+akita_beta_16708287.prop     <span class="t-label"># beta</span>
+akita_canary_16484274.prop   <span class="t-label"># canary</span>
+<span class="t-label">...</span>
 
-<span class="t-cmd">$ ls akita/</span>
-akita_16271449.prop   akita_16451184.prop   akita_16484274.prop
-akita_16521119.prop   akita_16594701.prop   akita_16596456.prop
+<span class="t-cmd">$ jq -r '.devices.akita.model' index.json</span>
+Pixel 8a
 
-<span class="t-cmd">$ head akita/akita_16596456.prop</span>
+<span class="t-cmd">$ head akita/akita_beta_16708287.prop</span>
 <span class="t-sep"># ======================================================================</span>
 <span class="t-label">#  PIXEL PROP BUILDER  ::  Pixel build.prop archive</span>
 <span class="t-label">#  Extract and distribute the full Pixel build.prop from Google's OTA images.</span>
@@ -158,12 +183,12 @@ akita_16521119.prop   akita_16594701.prop   akita_16596456.prop
       <section>
         <h2>Compile você mesmo</h2>
         <p>
-          Para extrair um <code>.prop</code> localmente em vez de baixá-lo, precisa de um ambiente
-          Unix-like (Linux ou macOS com Bash) e das dependências que o <code>requirements.sh</code>
-          instala na maioria dos gerenciadores de pacotes (apt, pacman, dnf, yum, zypper, apk, xbps,
-          brew, Termux): <code>p7zip</code>, <code>e2fsprogs</code>, <code>erofs-utils</code>,
-          <code>lz4</code>, <code>cpio</code>, <code>dos2unix</code>, <code>aria2</code>,
-          <code>curl</code>, <code>xxd</code>, <code>jq</code> e Python 3.8+ com
+          Para extrair um único <code>.prop</code> localmente em vez de baixá-lo, precisa de um
+          ambiente Unix-like (Linux ou macOS com Bash) e das dependências que o
+          <code>requirements.sh</code> instala na maioria dos gerenciadores de pacotes (apt, pacman,
+          dnf, yum, zypper, apk, xbps, brew, Termux): <code>p7zip</code>, <code>e2fsprogs</code>,
+          <code>erofs-utils</code>, <code>lz4</code>, <code>cpio</code>, <code>dos2unix</code>,
+          <code>aria2</code>, <code>curl</code>, <code>xxd</code>, <code>jq</code> e Python 3.8+ com
           <code>payload_dumper</code>.
         </p>
         <pre>git clone --recurse-submodules https://github.com/VictorGabriel7Dev/build.prop
@@ -181,21 +206,17 @@ cd build.prop
       <section>
         <h2>Automação</h2>
         <p>
-          Um pipeline do GitHub Actions (<code>.github/workflows/build.yml</code>) mantém o acervo
-          atualizado sem intervenção:
+          O acervo se mantém atualizado sozinho: conforme o Google publica novos builds, eles são
+          extraídos (completos, todas as partições, com <code>vbmeta.digest</code>), os novos
+          <code>.prop</code> entram em <code>&lt;codename&gt;/</code>, o <code>index.json</code> é
+          atualizado e uma release datada (<code>build-YYYYMMDD</code>) é criada para notificar quem
+          acompanha a cada leva.
         </p>
-        <ul>
-          <li>Roda semanalmente, e sob demanda via <code>workflow_dispatch</code> com uma lista de
-              aparelhos separada por espaços ou <code>all</code>; cada aparelho compila em paralelo.</li>
-          <li>Extrai o <code>.prop</code>, faz commit dos novos em <code>&lt;codename&gt;/</code> e os
-              publica como assets sob uma única tag diária (<code>build-YYYYMMDD</code>).</li>
-          <li>Pula os <code>.prop</code> já publicados e notifica o Telegram com links de download.</li>
-        </ul>
-        <div class="callout">
-          Forks que rodam o pipeline precisam de dois secrets:
-          <code>TELEGRAM_BOT_TOKEN</code> (do <a href="https://t.me/BotFather">@BotFather</a>) e
-          <code>TELEGRAM_CHAT_ID</code>.
-        </div>
+        <p>
+          Um <code>.github/workflows/build.yml</code> genérico e sob demanda
+          (<code>workflow_dispatch</code>) fica disponível como alternativa manual para compilar o
+          <code>.prop</code> mais recente de um aparelho.
+        </p>
       </section>
 
       <section>
