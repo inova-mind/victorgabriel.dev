@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MTProto Store · Telegram como object storage ilimitado via MTProto | Victor Gabriel</title>
+  <meta name="description" content="Um único binário estático em Go que usa o Telegram como armazenamento de objetos ilimitado e fragmentado, sobre MTProto nativo: login por conta de usuário e uploads em chunks num canal privado, sem API de bot.">
+  <meta name="keywords" content="mtproto-store, Telegram, MTProto, object storage, armazenamento ilimitado, gotd, Go, CLI, binário estático, chunked upload, canal privado, self-hosted, AGPL, Victor Gabriel Dev, Victor Gabriel Linux, Victor Gabriel Android, Inovamind Dev">
+  <meta name="author" content="Victor Gabriel">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://victorgabriel.dev/projetos/mtproto-store/">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://victorgabriel.dev/projetos/mtproto-store/">
+  <meta property="og:title"       content="MTProto Store · Telegram como object storage ilimitado via MTProto">
+  <meta property="og:description" content="Binário estático em Go que usa o Telegram como armazenamento de objetos ilimitado e fragmentado, sobre MTProto nativo, sem API de bot.">
+  <meta property="og:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+  <meta property="og:locale"      content="pt_BR">
+  <meta property="og:site_name"   content="Victor Gabriel">
+
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="MTProto Store · Telegram como object storage ilimitado via MTProto">
+  <meta name="twitter:description" content="Binário estático em Go que usa o Telegram como armazenamento de objetos ilimitado e fragmentado, sobre MTProto nativo, sem API de bot.">
+  <meta name="twitter:image"       content="https://victorgabriel.dev/paz-amor-e-coding.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MTProto Store",
+    "description": "Um único binário estático em Go que usa o Telegram como armazenamento de objetos ilimitado e fragmentado, sobre MTProto nativo: login por conta de usuário e uploads em chunks num canal privado, sem API de bot.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux, macOS, Windows, Android",
+    "programmingLanguage": "Go",
+    "codeRepository": "https://github.com/VictorGabriel7Dev/mtproto-store",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Gabriel",
+      "url": "https://victorgabriel.dev",
+      "email": "contato@victorgabriel.dev"
+    },
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "url": "https://victorgabriel.dev/projetos/mtproto-store/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <meta name="theme-color" content="#070B18">
+  <meta name="color-scheme" content="dark">
+</head>
+
+<body>
+
+  <nav>
+    <a href="https://victorgabriel.dev">← victorgabriel.dev</a>
+    <div class="nav-right">
+      <a href="https://victorgabriel.dev/projetos/">projetos</a>
+      <a href="https://github.com/VictorGabriel7Dev/mtproto-store" class="btn-gh">⭐ GitHub</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <header>
+      <div class="breadcrumb">
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a>
+        <span>/</span>
+        <a href="https://victorgabriel.dev/projetos/">projetos</a>
+        <span>/</span>
+        mtproto-store
+      </div>
+
+      <h1>MTProto Store</h1>
+      <p class="tagline">O Telegram como armazenamento de objetos ilimitado e fragmentado, sobre o protocolo nativo MTProto, num único binário de linha de comando autossuficiente.</p>
+
+      <div class="meta-badges">
+        <span class="badge green">Go</span>
+        <span class="badge cyan">MTProto</span>
+        <span class="badge yellow">AGPL-3.0-or-later</span>
+        <span class="badge">CLI</span>
+        <span class="badge">Cross-platform</span>
+      </div>
+
+      <div class="header-links">
+        <a href="https://github.com/VictorGabriel7Dev/mtproto-store" class="link-primary">Ver no GitHub</a>
+        <a href="https://github.com/VictorGabriel7Dev/mtproto-store/releases" class="link-secondary" target="_blank">Releases</a>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <section>
+        <h2>O que faz</h2>
+        <p>
+          Sem Python, sem API de bot, sem runtime externo: um único binário estático em Go que faz
+          login numa conta de usuário do Telegram por MTProto e guarda arquivos arbitrários como
+          uploads fragmentados num canal privado.
+        </p>
+        <ul>
+          <li>
+            Faz login numa <strong>conta de usuário</strong> do Telegram (telefone → código →
+            senha 2FA opcional), emulando o cliente oficial Telegram Desktop, o que mantém as
+            sessões estáveis e evita conflitos de logout com outros clientes.
+          </li>
+          <li>
+            Guarda arquivos como <strong>uploads fragmentados</strong> (chunks), contornando o
+            limite dos bots: até <strong>2 GB</strong> por arquivo, ou <strong>4 GB</strong> com o
+            Telegram Premium.
+          </li>
+          <li>
+            Cria ou reutiliza seu próprio <strong>canal de armazenamento</strong> privado, marcado
+            com um sufixo configurável para tocar só nos seus próprios canais.
+          </li>
+          <li>
+            Transmite os downloads de volta, lista os itens armazenados e imprime <strong>JSON</strong>
+            legível por máquina no stdout, fácil de automatizar.
+          </li>
+        </ul>
+        <p>Construído sobre <a href="https://github.com/gotd/td"><code>gotd/td</code></a> (MTProto puro em Go).</p>
+      </section>
+
+      <section>
+        <h2>Uso</h2>
+        <p>Todo comando imprime um único objeto JSON no stdout (<code>"ok": true | false</code>).</p>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="terminal-title">bash</span>
+          </div>
+          <pre><span class="t-cmd">$ mtproto-store send-code --phone +55...</span>      <span class="t-label"># Telegram envia o código</span>
+<span class="t-cmd">$ mtproto-store sign-in --phone +55... --code 12345 [--password 2fa]</span>
+<span class="t-cmd">$ mtproto-store init-storage --title "Backups"</span>  <span class="t-label"># cria o canal privado</span>
+<span class="t-cmd">$ mtproto-store upload --dir ./fotos</span>            <span class="t-label"># envia em chunks</span>
+{<span class="t-head">"ok"</span>: <span class="t-val">true</span>}</pre>
+        </div>
+        <ul>
+          <li><code>send-code --phone &lt;number&gt;</code>: inicia o login; o Telegram envia o código.</li>
+          <li><code>sign-in --phone &lt;number&gt; --code &lt;code&gt; [--password &lt;2fa&gt;]</code>: conclui o login.</li>
+          <li><code>check-auth</code> (alias <code>status</code>): informa o estado de autenticação.</li>
+          <li><code>init-storage [--title &lt;title&gt;]</code>: cria ou reutiliza o canal de armazenamento privado.</li>
+          <li><code>upload --dir &lt;path&gt; [flags]</code>: envia os arquivos de um diretório em chunks.</li>
+          <li><code>download [flags]</code>: baixa um arquivo armazenado.</li>
+          <li><code>list-remote</code> (alias <code>list-backups</code>): lista os itens armazenados.</li>
+          <li><code>logout</code>: descarta a sessão local.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Compilação</h2>
+        <p>Compilação cruzada estática para qualquer alvo, sem CGO. Os mesmos binários Linux estáticos rodam no Android (arm64-v8a, armeabi-v7a, x86_64, x86).</p>
+        <pre>CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o mtproto-store .
+
+# alvo específico (ex.: Android arm64)
+CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -trimpath -ldflags="-s -w" -o mtproto-store .</pre>
+        <div class="callout">
+          Tamanho do binário (uma arquitetura): <code>go build</code> padrão cerca de 23 MB;
+          com <code>-s -w -trimpath</code> cerca de 16 MB; depois <code>upx --best --lzma</code>
+          cerca de 5 a 6 MB. A CI publica binários de release comprimidos com UPX (autodescompacta
+          na inicialização, sobrecarga desprezível); a versão <code>-s -w</code> sem compressão é a
+          alternativa para quem prefere não distribuir binários empacotados.
+        </div>
+      </section>
+
+      <section>
+        <h2>Configuração</h2>
+        <p>Por variáveis de ambiente:</p>
+        <ul>
+          <li><code>MTPROTO_STORE_STATE</code> (padrão <code>$HOME/.mtproto-store</code>): diretório de estado (sessão, destino, logs).</li>
+          <li><code>MTPROTO_STORE_TAG</code> (padrão <code>MTPS</code>): sufixo que marca os canais desta ferramenta.</li>
+          <li><code>MTPROTO_STORE_API_ID</code> e <code>MTPROTO_STORE_API_HASH</code>: seu próprio par de <a href="https://my.telegram.org">my.telegram.org</a> (o padrão emula o Telegram Desktop).</li>
+        </ul>
+        <div class="callout">
+          Termos de Serviço: os padrões internos emulam o cliente oficial Telegram Desktop. Para
+          suas próprias implantações, obtenha e defina seu próprio <code>api_id</code> /
+          <code>api_hash</code> em my.telegram.org e revise os Termos do Telegram. Você é
+          responsável pelo uso que faz da sua conta.
+        </div>
+      </section>
+
+      <section>
+        <h2>A sessão é uma credencial sensível</h2>
+        <div class="callout warn">
+          Quem conseguir ler a sessão autenticada controla a conta, sem senha nem 2FA. A ferramenta
+          cria o diretório de estado como <code>0700</code> e grava a sessão como <code>0600</code>,
+          mas a proteção real está em <strong>onde</strong> você aponta
+          <code>MTPROTO_STORE_STATE</code>. Mantenha em armazenamento privado.
+        </div>
+        <p>
+          No Android, prefira o armazenamento <strong>Credential-Encrypted</strong> (por exemplo
+          <code>/data/misc_ce/&lt;user&gt;</code>), que só é desbloqueado depois que o usuário se
+          autentica, ao <strong>Device-Encrypted</strong> (por exemplo <code>/data/adb</code>),
+          legível antes do primeiro desbloqueio.
+        </p>
+      </section>
+
+      <section>
+        <h2>Créditos</h2>
+        <p>
+          O núcleo foi originalmente escrito por <strong>Ash
+          (<a href="https://github.com/ash-iir">@ash-iir</a>)</strong>, que projetou o cliente de
+          armazenamento MTProto sobre o qual ele é construído. Todo o crédito do trabalho original é
+          do autor. Este repositório extrai, remove a marca e generaliza esse trabalho numa
+          ferramenta autônoma e reutilizável.
+        </p>
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="footer-author">
+        <strong>Victor Gabriel</strong>
+        <a href="https://victorgabriel.dev">victorgabriel.dev</a><br>
+        <a href="mailto:contato@victorgabriel.dev">contato@victorgabriel.dev</a><br>
+        <a href="https://www.linkedin.com/in/victorgabriel-dev">LinkedIn</a> · <a href="https://t.me/VictorGabriel_Dev">Telegram</a> · <a href="https://www.instagram.com/VictorGabriel_Dev">Instagram</a> · Discord: <a href="https://discord.com/users/1481407654458036265">@VictorGabriel.dev</a> · <a href="https://wa.me/@VictorGabriel_Dev">WhatsApp</a><br>
+        <span style="color:#bbb;margin-top:.5rem;display:block">Gerado por <a href="https://claude.ai" style="color:#bbb">Claude</a>
+        </span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/VictorGabriel7Dev/mtproto-store">GitHub</a><br>
+        <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0-or-later</a><br>
+    </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

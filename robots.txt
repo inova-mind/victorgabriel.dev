@@ -13,6 +13,8 @@ Allow: /bff67e8c286649c1828148e05748f7be.txt
 Allow: /sitemap.xml
 Allow: /projetos/build.prop/
 Allow: /projetos/build.prop/index.html
+Allow: /projetos/mtproto-store/
+Allow: /projetos/mtproto-store/index.html
 Allow: /projetos/telegram-antispam-bot/
 Allow: /projetos/telegram-antispam-bot/index.html
 Allow: /projetos/webscraper-github-user/
